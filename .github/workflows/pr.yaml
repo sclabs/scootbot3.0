@@ -1,0 +1,26 @@
+name: PR workflow
+
+on:
+  pull_request:
+
+jobs:
+  tox:
+    name: tox
+    if: ! contains(toJSON(github.event.commits.*.message), '[skip ci]')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.8
+      - name: Cache tox
+        uses: actions/cache@v2
+        with:
+          path: .tox
+          key: tox-${{ hashFiles('requirements.txt') }}
+      - name: Run tox
+        run: |
+          pip install tox
+          tox
