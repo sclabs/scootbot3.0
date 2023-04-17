@@ -6,7 +6,7 @@ on:
 jobs:
   tox:
     name: tox
-    if: ! contains(toJSON(github.event.commits.*.message), '[skip ci]')
+    if: "! contains(toJSON(github.event.commits.*.message), '[skip ci]')"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
