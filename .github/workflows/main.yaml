@@ -26,6 +26,9 @@ jobs:
           path: .tox
           key: tox-${{ hashFiles('requirements.txt') }}-${{ hashFiles('requirements-dev.in') }}
       - name: Run tox
+        env:
+          SCOOTBOT_TOKEN: ${{ secrets.SCOOTBOT_TOKEN }}
+          SCOOTBOT_APP_TOKEN: ${{ secrets.SCOOTBOT_APP_TOKEN }}
         run: |
           pip install tox
           tox
