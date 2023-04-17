@@ -24,7 +24,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: .tox
-          key: tox-${{ hashFiles('requirements.txt') }}
+          key: tox-${{ hashFiles('requirements.txt') }}-${{ hashFiles('requirements-dev.in') }}
       - name: Run tox
         run: |
           pip install tox
