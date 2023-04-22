@@ -1,9 +1,0 @@
-black
-mypy
-pip-tools
-pytest
-pytest-cov
-pytest-mock
-ruff
-setuptools-scm
-tox

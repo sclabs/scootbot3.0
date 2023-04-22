@@ -1,17 +1,42 @@
-[project]
-name = "scootbot3"
-dynamic = ["version"]
-dependencies = []
-
-[project.scripts]
-scootbot3 = "scootbot3.app:main"
-
 [build-system]
 build-backend = "setuptools.build_meta"
 requires = [
     "setuptools >= 65.4.0",
-    "setuptools_scm[toml] >= 7.0.5",
+    "setuptools_scm[toml] >= 7.1.0",
 ]
+
+[project]
+name = "scootbot3"
+dynamic = ["version"]
+dependencies = [
+    "slack-sdk",
+]
+
+[project.optional-dependencies]
+lint = [
+    "black==23.3.0",
+    "ruff==0.0.262",
+]
+type = [
+    "mypy==1.2.0",
+]
+test = [
+    "pytest==7.3.1",
+    "pytest-cov==4.0.0",
+    "pytest-mock==3.10.0",
+    "setuptools-scm[toml]==7.1.0",
+]
+automation = [
+    "pip-tools==6.13.0",
+    "tox==4.4.12",
+    "tox-extras==0.0.1",
+]
+dev = [
+    "tox-extras[lint,type,test,automation]",
+]
+
+[project.scripts]
+scootbot3 = "scootbot3.app:main"
 
 [tool.setuptools_scm]
 root = "."
