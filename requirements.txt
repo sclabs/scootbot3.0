@@ -4,4 +4,10 @@
 #
 #    pip-compile --annotation-style=line
 #
-slack-sdk==3.21.1         # via -r requirements.in
+certifi==2023.7.22        # via requests
+charset-normalizer==3.3.2  # via requests
+idna==3.4                 # via requests
+requests==2.31.0          # via scootbot3 (pyproject.toml)
+slack-sdk==3.21.1         # via scootbot3 (pyproject.toml)
+typing-extensions==4.8.0  # via scootbot3 (pyproject.toml)
+urllib3==2.1.0            # via requests
