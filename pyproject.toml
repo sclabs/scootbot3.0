@@ -9,7 +9,9 @@ requires = [
 name = "scootbot3"
 dynamic = ["version"]
 dependencies = [
+    "requests",
     "slack-sdk",
+    "typing_extensions",
 ]
 
 [project.optional-dependencies]
@@ -19,6 +21,7 @@ lint = [
 ]
 type = [
     "mypy==1.2.0",
+    "types-requests==2.31.0.10",
 ]
 test = [
     "pytest==7.3.1",
