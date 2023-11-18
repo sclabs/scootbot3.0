@@ -6,7 +6,7 @@ COPY requirements.txt /build/requirements.txt
 RUN pip wheel --no-deps -w /build/dist -r /build/requirements.txt
 
 # base image: installs wheels for all dependencies
-FROM python:3.8-slim AS base
+FROM python:3.8-slim-bullseye AS base
 
 # copy all wheels from builder and install
 COPY --from=dep-builder [ "/build/dist/*.whl", "/install/" ]
